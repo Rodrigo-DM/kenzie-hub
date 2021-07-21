@@ -9,13 +9,13 @@ export default createGlobalStyle`
     }
 
     :root {
-        --dark-blue: #0679FB;
+        --dark-blue: #1C40A7;
         --blue: #0679FB;
-        --blue-back: #0679FB;
+        --blue-back: #E8F3FE;
         --gray: #C6C6C6;
         --gray-back: #F5F5F5;
         --white: #FFFF;
-        --black: #0000;
+        --black: #000;
         --title: 'Russo One', sans-serif;
         --text: 'Roboto', sans-serif;
     }

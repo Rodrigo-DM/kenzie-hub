@@ -26,16 +26,16 @@ export function Singup() {
                         <h2>Cadastro</h2>
                         {!nextForm &&
                             <>
-                                <Input icon={AiOutlineMail} type="text" placeholder="E-mail" />
-                                <Input icon={RiLockPasswordLine} type="password" placeholder="Senha" />
-                                <Input icon={RiLockPasswordLine} type="password" placeholder="Senha" />
+                                <Input maxWidth={270} marginBot={1} icon={AiOutlineMail} type="text" placeholder="E-mail" />
+                                <Input maxWidth={270} marginBot={1} icon={RiLockPasswordLine} type="password" placeholder="Senha" />
+                                <Input maxWidth={270} marginBot={1} icon={RiLockPasswordLine} type="password" placeholder="Confirmação de Senha" />
                             </>
                         }
                         {nextForm &&
                             <>
-                                <Input icon={CgProfile} type="text" placeholder="Name" />
-                                <Input icon={MdDescription} type="text" placeholder="Bio" />
-                                <Input icon={AiOutlineContacts} type="text" placeholder="Contato" />
+                                <Input maxWidth={270} marginBot={1} icon={CgProfile} type="text" placeholder="Name" />
+                                <Input maxWidth={270} marginBot={1} icon={MdDescription} type="text" placeholder="Bio" />
+                                <Input maxWidth={270} marginBot={1} icon={AiOutlineContacts} type="text" placeholder="Contato" />
 
                                 <select name="select">
                                     <option value="">--Módulo do Curso--</option>

@@ -11,12 +11,14 @@ export const Bar = styled.div`
     height: 60px;
     width: 100%;
     padding: 0 20px;
-    background-color: var(--blue); 
+    display: flex;
+    justify-content: center;
+    background-color: var(--dark-blue); 
  
     div {
         height: 100%;
         width: 100%;
-        max-width: 1400px;
+        max-width: 1300px;
         display: flex; 
         align-Items: center;
         justify-content: space-between;
@@ -24,7 +26,7 @@ export const Bar = styled.div`
 
     h1 {
         text-shadow: 2px 2px 0px #FFFFFF, 5px 4px 0px rgba(0,0,0,0.15), 0px 0px 12px rgba(255,255,255,0.4);
-        color: var(--dark-blue);
+        color: var(--blue);
         @media screen and (max-width: 768px) {
             font-size: 2rem;
         }

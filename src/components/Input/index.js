@@ -1,10 +1,10 @@
 import { Container, InputContainer } from "./styles";
 
-function Input({ label, icon: Icon, ...rest }) {
+function Input({ maxWidth, marginBot, label, icon: Icon, ...rest }) {
     return (
         <Container>
             <div>{label}</div>
-            <InputContainer>
+            <InputContainer maxWidth={maxWidth} marginBot={marginBot}>
                 {Icon && <Icon />}
                 <input {...rest} />
             </InputContainer>

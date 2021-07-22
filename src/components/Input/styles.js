@@ -13,10 +13,10 @@ export const InputContainer = styled.div`
     border: 2px solid var(--blue-back);
     color: var(--gray);
     padding: 0 10px;
-    margin-bottom: 1rem;
+    margin-bottom: ${(props) => (`${props.marginBot}rem`)};
     height: 30px;
     width: 100%;
-    max-width: 270px;
+    max-width: ${(props) => (`${props.maxWidth}px`)};
     display: flex;
     align-items: center;
     transition: .4s;

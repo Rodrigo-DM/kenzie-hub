@@ -56,11 +56,15 @@ export const FormContainer = styled.div`
         }
 
         button {
-            margin: 2rem 0 1rem 0;
+            margin: 1rem 0 0 0;
         }
 
         a {
             color: var(--blue);
+        }
+
+        p {
+            margin-top: 10px;
         }
 
         select {

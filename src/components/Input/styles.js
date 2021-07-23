@@ -1,10 +1,17 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
     text-align: left;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+
+    p {
+        color: red;
+        margin-bottom: 10px;
+    }
 `;
 
 export const InputContainer = styled.div`
@@ -20,6 +27,15 @@ export const InputContainer = styled.div`
     display: flex;
     align-items: center;
     transition: .4s;
+
+    ${(props) => props.isErrored && css`
+        border: 2px solid red;
+        margin-bottom: 0;
+
+        svg {
+            color: red;
+        }
+    `}
 
     input {
         width: 100%;

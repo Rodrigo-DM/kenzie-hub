@@ -1,6 +1,5 @@
-import { Container, Bar, Content, Right } from "./styles";
+import { Container, Bar, Content } from "./styles";
 
-import Input from "../../components/Input";
 import Button from "../../components/Button";
 import Profiles from "../../components/Profiles";
 
@@ -16,7 +15,7 @@ export function Home() {
                 </div>
             </Bar>
             <Content>
-                <Input maxWidth={450} placeholder="Tecnologia" />
+                <input placeholder="Tecnologia" />
                 <Button>Filtrar</Button>
             </Content>
             <Profiles />

@@ -1,13 +1,15 @@
 import { Container, InputContainer } from "./styles";
 
-function Input({ maxWidth, marginBot, label, icon: Icon, ...rest }) {
+function Input({ maxWidth, marginBot, icon: Icon, register, name, error, ...rest }) {
     return (
-        <Container>
-            <div>{label}</div>
-            <InputContainer maxWidth={maxWidth} marginBot={marginBot}>
+        <Container isErrored={!!error}>
+            <InputContainer maxWidth={maxWidth} marginBot={marginBot} isErrored={!!error}>
                 {Icon && <Icon />}
-                <input {...rest} />
+                <input {...register(name)} {...rest} />
             </InputContainer>
+            <div>
+                {!!error && <p>{error}</p>}
+            </div>
         </Container>
     );
 }

@@ -2,7 +2,7 @@ import { Container, Bar, Content } from "./styles";
 
 import Techs from "../../components/Techs";
 import Works from "../../components/Works";
-import SimpleModal from "../SimpleModal"
+import ModalAdicionar from "../ModalAdicionar"
 
 import { BiListPlus } from "react-icons/bi";
 
@@ -11,7 +11,7 @@ function TechsWorks({ techs, works, permission }) {
         <Container>
             <Bar>
                 <h3>Tecnologias / Trabalhos</h3>
-                {permission && <SimpleModal><BiListPlus /></SimpleModal>}
+                {permission && <ModalAdicionar><BiListPlus /></ModalAdicionar>}
             </Bar>
             <Content>
                 <Techs techs={techs} permission={permission} />

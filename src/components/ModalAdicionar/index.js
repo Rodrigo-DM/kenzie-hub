@@ -2,7 +2,8 @@ import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 
-import { EditTech } from '../EditTech';
+import { AddWork } from "../AddWork";
+import { AddTechs } from "../AddTechs";
 
 function getModalStyle() {
     const top = 50;
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UpTech({ children, id, title }) {
+export default function ModalAdicionar({ children }) {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -42,8 +43,9 @@ export default function UpTech({ children, id, title }) {
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <EditTech id={id} title={title} />
-            <UpTech />
+            <AddWork />
+            <AddTechs />
+            <ModalAdicionar />
         </div>
     );
 

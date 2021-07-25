@@ -8,3 +8,18 @@ export const Container = styled.li`
         font-weight: bold;
     }
 `;
+
+export const Content = styled.div`
+    margin-top: 5px;
+    display: flex;
+    justify-content: space-evenly;
+
+    div button {
+        background-color: transparent;
+    }
+
+    button {
+        color: var(--blue);
+        background-color: transparent;
+    }
+`;

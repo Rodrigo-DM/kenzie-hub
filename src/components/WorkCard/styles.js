@@ -18,18 +18,23 @@ export const Container = styled.div`
         font-weight: bold;
     }
 
-    a {
-        color: var(--blue);
-        font-weight: bold;
+    div button {
+        background-color: transparent;
     }
 
-    a:nth-child(4) {
+    button, a {
+        color: var(--blue);
+        font-weight: bold;
+        background-color: transparent;
+    }
+
+    div {
         position: absolute;
         top: 10px;
         right: 20px;
     }
 
-    a:nth-child(5) {
+    button:nth-child(5) {
         position: absolute;
         bottom: 10px;
         right: 20px;

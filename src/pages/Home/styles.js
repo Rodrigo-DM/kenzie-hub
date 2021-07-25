@@ -39,7 +39,6 @@ export const Bar = styled.div`
 `;
 
 export const Content = styled.div`
-    position: relative;
     width: 100%;
     max-width: 800px;
     margin-top: 1rem;
@@ -50,63 +49,9 @@ export const Content = styled.div`
     flex-direction: column;
     align-items: center;
 
-    figure {
-        width: 100px;
-        text-align: center;
-        margin: 0 0 20px 0;
-    }
-    
-    img {
-        margin: 0 10px;
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-    }
-
-    figcaption {
-        font-weight: bold;
-    }
-
-    div p:nth-last-child(1) {
-        margin-top: 20px;
-        font-weight: bold;
-    }
-
     @media screen and (min-width: 768px) {
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
-
-        figure {
-            margin: 0 40px 0 0;
-        }
     }
-`;
-
-export const Right = styled.div`
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    right: 0;
-    height: 100%;
-    width: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 0 20px 20px 0;
-    background-color: var(--gray-back);
-    cursor: pointer;
-    
-    a {
-        color: var(--blue);
-    }
-
-    &:hover {
-        background-color: var(--blue);
-    }
-
-    &:hover a {
-        color: var(--gray-back);
-    }
-
 `;

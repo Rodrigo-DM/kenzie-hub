@@ -10,6 +10,7 @@ export const Container = styled.div`
 `;
 
 export const Bar = styled.div`
+    position: relative;
     height: 60px;
     width: 100%;
     display: flex;
@@ -17,6 +18,20 @@ export const Bar = styled.div`
     align-items: center;
     color: var(--white);
     background-color: var(--dark-blue);
+
+    div {
+        position: absolute;
+        right: 20px;
+
+        button {
+            background-color: transparent;
+        }
+
+        svg {
+            color: var(--white);
+            font-size: 32px;
+        }
+    }
 `;
 
 export const Content = styled.div`

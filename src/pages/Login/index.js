@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, Redirect, useHistory } from "react-router-dom";
 import { Container, Backgorund, Content, FormContainer } from "./styles";
 
 import { AiOutlineMail } from "react-icons/ai";
@@ -11,7 +11,13 @@ import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 
-export function Login() {
+import api from "../../services/api";
+import { toast } from "react-toastify";
+
+export function Login({ authenticated, setAuthenticated }) {
+    const history = useHistory();
+
+
     const formSchema = yup.object().shape({
         email: yup
             .string()
@@ -32,7 +38,28 @@ export function Login() {
     });
 
     const submit = (data) => {
-        console.log(data)
+        api
+            .post("/sessions", { ...data })
+            .then((response) => {
+                const { token, user } = response.data;
+
+                localStorage.clear();
+
+                localStorage.setItem("@KenzieHub:token", JSON.stringify(token));
+
+                localStorage.setItem("@KenzieHub:user", JSON.stringify(user));
+
+                setAuthenticated(true);
+
+                return history.push("/");
+            })
+            .catch((_) =>
+                toast.error("Email ou senha inválidos, tente novamente!")
+            );
+    }
+
+    if (authenticated) {
+        return <Redirect to="/" />
     }
 
     return (

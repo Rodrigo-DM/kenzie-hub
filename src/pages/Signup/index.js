@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useHistory, Redirect } from "react-router-dom";
 import { Container, Backgorund, Content, FormContainer } from "./styles";
 
 import { AiOutlineMail, AiOutlineContacts } from "react-icons/ai";
@@ -14,7 +14,11 @@ import * as yup from 'yup';
 import { useForm } from "react-hook-form";
 import { yupResolver } from '@hookform/resolvers/yup';
 
-export function Singup() {
+import api from "../../services/api";
+
+import { toast } from "react-toastify";
+
+export function Singup({ authenticated }) {
     const [nextForm, setNextForm] = useState(false);
 
     const next = () => {
@@ -44,8 +48,22 @@ export function Singup() {
         resolver: yupResolver(formSchema)
     });
 
+    const history = useHistory();
+
+    if (authenticated) {
+        return <Redirect to="/" />
+    }
+
     const submit = (data) => {
-        console.log(data);
+        api
+            .post("/users", { ...data })
+            .then((_) => {
+                toast.success("Sucesso ao criar a conta");
+                return history.push("/login");
+            })
+            .catch((_) =>
+                toast.error("Erro ao tentar criar a conta, tente novamente!")
+            );
     }
 
     return (

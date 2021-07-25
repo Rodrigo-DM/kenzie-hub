@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Switch, Route } from "react-router-dom";
 
 import { Home } from "../pages/Home";
@@ -7,19 +8,33 @@ import { User } from "../pages/User";
 
 
 export default function Routes() {
+    const [authenticated, setAuthenticated] = useState(false);
+
+    useEffect(() => {
+        const token = JSON.parse(localStorage.getItem("@KenzieHub:token"));
+
+        if (token) {
+            return setAuthenticated(true);
+        }
+    }, [authenticated]);
+
+    const allowed = authenticated ?
+        JSON.parse(localStorage.getItem("@KenzieHub:user"))
+        : false;
+
     return (
         <Switch>
             <Route exact path="/" >
-                <Home />
+                <Home authenticated={authenticated} allowed={allowed} />
+            </Route>
+            <Route path="/user/:id" >
+                <User allowed={allowed} />
             </Route>
             <Route path="/login" >
-                <Login />
+                <Login authenticated={authenticated} setAuthenticated={setAuthenticated} />
             </Route>
             <Route path="/signup">
-                <Singup />
-            </Route>
-            <Route path="/User">
-                <User />
+                <Singup authenticated={authenticated} />
             </Route>
         </Switch >
     );

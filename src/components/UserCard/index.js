@@ -1,20 +1,27 @@
+/* eslint-disable react/jsx-no-target-blank */
 import { Container } from "./styles";
 
-import { Link } from "react-router-dom";
+import { CgProfile } from "react-icons/cg";
 
-function UserCard() {
+import UpPerfil from "../UpPerfil";
+
+function UserCard({ user, permission }) {
+    const { avatar_url, bio, name, contact, course_module } = user;
+
+
+
     return (
         <Container>
             <figure>
-                <img src="https://picsum.photos/100/100" alt="profile" />
-                <figcaption>Rodrigo Diniz</figcaption>
+                {avatar_url ? <img src={avatar_url} alt="profile" /> : <CgProfile />}
+                <figcaption>{name}</figcaption>
             </figure>
             <div>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-                <p>react, html, css, java script</p>
+                <p>{bio}</p>
+                <p>{course_module}</p>
             </div>
-            <Link>Contado</Link>
-            <Link to="/editar">Editar</Link>
+            <a href={contact} target="_blank">{contact}</a>
+            {permission && <UpPerfil >Editar</UpPerfil>}
         </Container>
     );
 }

@@ -18,11 +18,28 @@ export const Content = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    input {
+        margin: 0 10px 10px 0; 
+        padding: 0 10px;
+        width: calc(250px + 10vw);
+        height: 30px;
+        border: 2px solid var(--blue-back);
+        background-color: var(--white);
+        border-radius: 10px;
+    }
 
     @media screen and (min-width: 768px) {
+        //width: calc(300px + 10vw);
         flex-direction: row;
         align-items: center;
         justify-content: flex-start;
+
+        input {
+            margin-botom: 0;
+        }
     }
 `;
 

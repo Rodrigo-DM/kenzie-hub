@@ -5,7 +5,7 @@ import { Home } from "../pages/Home";
 import { Login } from "../pages/Login";
 import { Singup } from "../pages/Signup";
 import { User } from "../pages/User";
-
+import { Logout } from "../pages/Logout";
 
 export default function Routes() {
     const [authenticated, setAuthenticated] = useState(false);
@@ -25,7 +25,7 @@ export default function Routes() {
     return (
         <Switch>
             <Route exact path="/" >
-                <Home authenticated={authenticated} allowed={allowed} />
+                <Home allowed={allowed} />
             </Route>
             <Route path="/user/:id" >
                 <User allowed={allowed} />
@@ -35,6 +35,9 @@ export default function Routes() {
             </Route>
             <Route path="/signup">
                 <Singup authenticated={authenticated} />
+            </Route>
+            <Route path="/logout">
+                <Logout />
             </Route>
         </Switch >
     );

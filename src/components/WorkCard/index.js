@@ -16,6 +16,7 @@ function WorkCard({ work, permission }) {
             .delete(`/users/works/${id}`)
             .then((_) => {
                 toast.success("Trabalho deletado!");
+                window.location.reload();
             })
             .catch((_) => {
                 toast.error("Erro ao tentar deletar trabalho, tente novamente!")

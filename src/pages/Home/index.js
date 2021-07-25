@@ -1,28 +1,12 @@
-import { Container, Bar } from "./styles";
+import { Container } from "./styles";
+import { Bar } from "../../components/Bar";
 
 import Profiles from "../../components/Profiles";
 
-import { Link } from "react-router-dom";
-
-export function Home({ authenticated, allowed }) {
+export function Home({ allowed }) {
     return (
         <Container>
-            <Bar>
-                {
-                    allowed ?
-                        <div>
-                            <h1>KenzieHub</h1>
-                            <Link to={`/user/${allowed.id}`}>{allowed.name}</Link>
-                        </div>
-                        :
-                        <div>
-                            <Link to="/">
-                                <h1>KenzieHub</h1>
-                            </Link>
-                            <Link to="/login">Entrar</Link>
-                        </div>
-                }
-            </Bar>
+            <Bar allowed={allowed} />
             <Profiles allowed={allowed} />
         </Container>
     );

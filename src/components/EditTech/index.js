@@ -31,6 +31,7 @@ export function EditTech({ id, title }) {
             .put(`/users/techs/${id}`, { ...data })
             .then((_) => {
                 toast.success("Tecnologia atualizada com sucesso");
+                window.location.reload();
             })
             .catch((err) => {
                 console.log(err)

@@ -30,6 +30,7 @@ export function AddTechs() {
         api
             .post("/users/techs", { ...data })
             .then((_) => {
+                window.location.reload();
                 toast.success("Nova tecnologia registrada");
             })
             .catch((_) => {

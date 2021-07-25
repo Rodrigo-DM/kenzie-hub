@@ -37,6 +37,7 @@ export function EditWork({ id, title, description, link }) {
             .put(`/users/works/${id}`, { ...data })
             .then((_) => {
                 toast.success("Trabalho atualizado com sucesso");
+                window.location.reload();
             })
             .catch((err) => {
                 console.log(err)

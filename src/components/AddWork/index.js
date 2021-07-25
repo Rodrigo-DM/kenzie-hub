@@ -31,6 +31,7 @@ export function AddWork() {
         api
             .post("/users/works", { ...data })
             .then((_) => {
+                window.location.reload();
                 toast.success("Trabalho registrado com sucesso");
             })
             .catch((_) => {

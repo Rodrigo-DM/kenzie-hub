@@ -38,6 +38,7 @@ export function EditPerfil() {
             .put("/profile", { ...data })
             .then((_) => {
                 toast.success("Sucesso ao atualizar dados");
+                window.location.reload();
             })
             .catch((_) => {
                 toast.error(`Erro ao tentar atualizar dados, tente novamente! Para atualizar sua senha é necessario a senha atual`)

@@ -1,7 +1,7 @@
 import { Container } from "./styles";
 
-import { Link, useParams } from "react-router-dom";
-import { Bar } from "../Home/styles";
+import { useParams } from "react-router-dom";
+import { Bar } from "../../components/Bar";
 
 import UserCard from "../../components/UserCard";
 import TechsWorks from "../../components/TechsWorks";
@@ -35,23 +35,7 @@ export function User({ allowed }) {
 
     return (
         <>
-            <Bar>
-                {
-                    allowed ? <div>
-                        <Link to="/">
-                            <h1>KenzieHub</h1>
-                        </Link>
-                        <Link to={`/user/${allowed.id}`}>{allowed.name}</Link>
-                    </div>
-                        :
-                        <div>
-                            <Link to="/">
-                                <h1>KenzieHub</h1>
-                            </Link>
-                            <Link to="/login">Entrar</Link>
-                        </div>
-                }
-            </Bar>
+            <Bar allowed={allowed} />
             <Container>
                 <UserCard user={user} permission={permission} />
                 <TechsWorks techs={user.techs} works={user.works} permission={permission} />

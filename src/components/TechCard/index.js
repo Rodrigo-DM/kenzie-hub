@@ -15,6 +15,7 @@ function TechCard({ tech, permission }) {
             .delete(`/users/techs/${id}`)
             .then((_) => {
                 toast.success("Tecnologia deletada!");
+                window.location.reload();
             })
             .catch((_) => {
                 toast.error("Erro ao tentar deletar tecnologia, tente novamente!")

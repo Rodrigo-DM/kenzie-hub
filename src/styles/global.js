@@ -7,6 +7,7 @@ export default createGlobalStyle`
         box-sizing: border-box;
         outline: none;
         border: none;
+        list-style: none;
     }
 
     :root {

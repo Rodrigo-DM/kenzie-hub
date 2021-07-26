@@ -4,13 +4,9 @@ import Modal from '@material-ui/core/Modal';
 
 import { EditWork } from '../EditWork';
 
-function rand() {
-    return Math.round(Math.random() * 20) - 10;
-}
-
 function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
+    const top = 50;
+    const left = 50;
 
     return {
         top: `${top}%`,
@@ -30,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UpWork({ children, id, title, description, link }) {
+export default function UpWork({ children, id, title, description, link, up, setUp }) {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -46,7 +42,14 @@ export default function UpWork({ children, id, title, description, link }) {
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <EditWork id={id} title={title} description={description} link={link} />
+            <EditWork
+                id={id}
+                title={title}
+                description={description}
+                link={link}
+                up={up}
+                setUp={setUp}
+            />
             <UpWork />
         </div>
     );

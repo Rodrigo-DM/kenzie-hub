@@ -8,15 +8,15 @@ import UpWork from "../UpWork";
 import { toast } from "react-toastify";
 import api from "../../services/api";
 
-function WorkCard({ work, permission }) {
+function WorkCard({ work, permission, up, setUp }) {
     const { id, title, description, deploy_url } = work;
 
     const trash = (id) => {
         api
             .delete(`/users/works/${id}`)
             .then((_) => {
+                setUp(1);
                 toast.success("Trabalho deletado!");
-                window.location.reload();
             })
             .catch((_) => {
                 toast.error("Erro ao tentar deletar trabalho, tente novamente!")
@@ -29,9 +29,19 @@ function WorkCard({ work, permission }) {
             <p>{title}</p>
             <p>{description}</p>
             <a href={deploy_url} target="_blank">Acessar</a>
-            {permission && <UpWork id={id} title={title} description={description} link={deploy_url}>
-                <BiEdit />
-            </UpWork>}
+            {
+                permission &&
+                <UpWork
+                    id={id}
+                    title={title}
+                    description={description}
+                    link={deploy_url}
+                    up={up}
+                    setUp={setUp}
+                >
+                    <BiEdit />
+                </UpWork>
+            }
             {permission && <button onClick={() => trash(id)}>
                 <BiTrash />
             </button>}

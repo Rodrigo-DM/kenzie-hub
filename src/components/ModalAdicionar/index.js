@@ -5,13 +5,9 @@ import Modal from '@material-ui/core/Modal';
 import { AddWork } from "../AddWork";
 import { AddTechs } from "../AddTechs";
 
-function rand() {
-    return Math.round(Math.random() * 20) - 10;
-}
-
 function getModalStyle() {
-    const top = 50 + rand();
-    const left = 50 + rand();
+    const top = 50;
+    const left = 50;
 
     return {
         top: `${top}%`,
@@ -31,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function SimpleModal({ children }) {
+export default function ModalAdicionar({ children, up, setUp }) {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -47,9 +43,9 @@ export default function SimpleModal({ children }) {
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <AddWork />
-            <AddTechs />
-            <SimpleModal />
+            <AddWork up={up} setUp={setUp} />
+            <AddTechs up={up} setUp={setUp} />
+            <ModalAdicionar />
         </div>
     );
 

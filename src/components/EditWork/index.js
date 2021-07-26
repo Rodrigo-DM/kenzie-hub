@@ -11,7 +11,7 @@ import api from "../../services/api";
 import { toast } from "react-toastify";
 import { useState } from "react";
 
-export function EditWork({ id, title, description, link }) {
+export function EditWork({ id, title, description, link, up, setUp }) {
     const [initTitle, setInitTitle] = useState(title);
     const [initDescription, setInitDescription] = useState(description);
     const [initLink, setInitLink] = useState(link);
@@ -36,11 +36,10 @@ export function EditWork({ id, title, description, link }) {
         api
             .put(`/users/works/${id}`, { ...data })
             .then((_) => {
+                setUp(!up);
                 toast.success("Trabalho atualizado com sucesso");
-                window.location.reload();
             })
-            .catch((err) => {
-                console.log(err)
+            .catch((_) => {
                 toast.error("Erro ao tentar atualizar trabalho, tente novamente!")
             }
             );

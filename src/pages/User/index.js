@@ -11,7 +11,8 @@ import { useEffect, useState } from "react";
 
 export function User({ allowed }) {
     const { id } = useParams();
-    const [user, setUser] = useState({ techs: [], works: [] })
+    const [user, setUser] = useState({ techs: [], works: [] });
+    const [up, setUp] = useState(false);
 
     const [permission, setPermission] = useState(false);
 
@@ -20,9 +21,10 @@ export function User({ allowed }) {
             setPermission(true)
         }
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [id, allowed])
+    }, [id, allowed]);
 
     useEffect(() => {
+        console.log('entrou')
         api
             .get(`/users/${id}`)
             .then((response) => {
@@ -31,14 +33,14 @@ export function User({ allowed }) {
             .catch((err) =>
                 console.log(err)
             );
-    }, [id]);
+    }, [id, up]);
 
     return (
         <>
             <Bar allowed={allowed} />
             <Container>
-                <UserCard user={user} permission={permission} />
-                <TechsWorks techs={user.techs} works={user.works} permission={permission} />
+                <UserCard user={user} permission={permission} up={up} setUp={setUp} />
+                <TechsWorks user={user} permission={permission} up={up} setUp={setUp} />
             </Container>
         </>
     );

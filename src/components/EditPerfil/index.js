@@ -15,7 +15,7 @@ import api from "../../services/api";
 
 import { toast } from "react-toastify";
 
-export function EditPerfil() {
+export function EditPerfil({ up, setUp }) {
     const formSchema = yup.object().shape({
         name: yup.string(),
         contact: yup.string(),
@@ -37,11 +37,11 @@ export function EditPerfil() {
         api
             .put("/profile", { ...data })
             .then((_) => {
+                setUp(!up);
                 toast.success("Sucesso ao atualizar dados");
-                window.location.reload();
             })
             .catch((_) => {
-                toast.error(`Erro ao tentar atualizar dados, tente novamente! Para atualizar sua senha é necessario a senha atual`)
+                toast.error(`Erro ao tentar atualizar dados, tente novamente! Para atualizar sua senha é necessario a senha atual`);
             }
             );
     }

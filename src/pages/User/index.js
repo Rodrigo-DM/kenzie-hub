@@ -24,7 +24,6 @@ export function User({ allowed }) {
     }, [id, allowed]);
 
     useEffect(() => {
-        console.log('entrou')
         api
             .get(`/users/${id}`)
             .then((response) => {

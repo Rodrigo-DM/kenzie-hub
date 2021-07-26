@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UpWork({ children, id, title, description, link }) {
+export default function UpWork({ children, id, title, description, link, up, setUp }) {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -42,7 +42,14 @@ export default function UpWork({ children, id, title, description, link }) {
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <EditWork id={id} title={title} description={description} link={link} />
+            <EditWork
+                id={id}
+                title={title}
+                description={description}
+                link={link}
+                up={up}
+                setUp={setUp}
+            />
             <UpWork />
         </div>
     );

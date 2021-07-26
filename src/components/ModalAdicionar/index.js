@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function ModalAdicionar({ children }) {
+export default function ModalAdicionar({ children, up, setUp }) {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -43,8 +43,8 @@ export default function ModalAdicionar({ children }) {
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <AddWork />
-            <AddTechs />
+            <AddWork up={up} setUp={setUp} />
+            <AddTechs up={up} setUp={setUp} />
             <ModalAdicionar />
         </div>
     );

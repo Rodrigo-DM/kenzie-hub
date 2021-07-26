@@ -10,7 +10,7 @@ import api from "../../services/api";
 
 import { toast } from "react-toastify";
 
-export function EditTech({ id, title }) {
+export function EditTech({ id, title, up, setUp }) {
 
     const formSchema = yup.object().shape({
         title: yup.string().required("Campo obrigatório"),
@@ -30,11 +30,10 @@ export function EditTech({ id, title }) {
         api
             .put(`/users/techs/${id}`, { ...data })
             .then((_) => {
+                setUp(!up);
                 toast.success("Tecnologia atualizada com sucesso");
-                window.location.reload();
             })
-            .catch((err) => {
-                console.log(err)
+            .catch((_) => {
                 toast.error("Erro ao tentar atualizar tecnologia, tente novamente!")
             }
             );

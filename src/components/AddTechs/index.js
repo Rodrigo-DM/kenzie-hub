@@ -11,7 +11,7 @@ import api from "../../services/api";
 
 import { toast } from "react-toastify";
 
-export function AddTechs() {
+export function AddTechs({ up, setUp }) {
     const formSchema = yup.object().shape({
         title: yup.string().required("Campo obrigatório"),
         status: yup.string().required("Campo obrigatório")
@@ -30,7 +30,7 @@ export function AddTechs() {
         api
             .post("/users/techs", { ...data })
             .then((_) => {
-                window.location.reload();
+                setUp(!up);
                 toast.success("Nova tecnologia registrada");
             })
             .catch((_) => {

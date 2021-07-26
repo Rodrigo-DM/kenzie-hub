@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UpTech({ children, id, title }) {
+export default function UpTech({ children, id, title, up, setUp }) {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -42,7 +42,7 @@ export default function UpTech({ children, id, title }) {
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <EditTech id={id} title={title} />
+            <EditTech id={id} title={title} up={up} setUp={setUp} />
             <UpTech />
         </div>
     );

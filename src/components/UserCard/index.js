@@ -5,7 +5,7 @@ import { CgProfile } from "react-icons/cg";
 
 import UpPerfil from "../UpPerfil";
 
-function UserCard({ user, permission }) {
+function UserCard({ user, permission, up, setUp }) {
     const { avatar_url, bio, name, contact, course_module } = user;
 
 
@@ -21,7 +21,7 @@ function UserCard({ user, permission }) {
                 <p>{course_module}</p>
             </div>
             <a href={contact} target="_blank">{contact}</a>
-            {permission && <UpPerfil >Editar</UpPerfil>}
+            {permission && <UpPerfil up={up} setUp={setUp} >Editar</UpPerfil>}
         </Container>
     );
 }

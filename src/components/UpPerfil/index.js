@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function UpPerfil({ children }) {
+export default function UpPerfil({ children, up, setUp }) {
     const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
@@ -42,7 +42,7 @@ export default function UpPerfil({ children }) {
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <EditPerfil />
+            <EditPerfil up={up} setUp={setUp} />
             <UpPerfil />
         </div>
     );

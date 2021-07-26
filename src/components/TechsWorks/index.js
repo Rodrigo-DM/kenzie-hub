@@ -6,16 +6,33 @@ import ModalAdicionar from "../ModalAdicionar"
 
 import { BiListPlus } from "react-icons/bi";
 
-function TechsWorks({ techs, works, permission }) {
+function TechsWorks({ user, permission, up, setUp }) {
+    const { techs, works } = user;
+
     return (
         <Container>
             <Bar>
                 <h3>Tecnologias / Trabalhos</h3>
-                {permission && <ModalAdicionar><BiListPlus /></ModalAdicionar>}
+                {
+                    permission &&
+                    <ModalAdicionar up={up} setUp={setUp}>
+                        <BiListPlus />
+                    </ModalAdicionar>
+                }
             </Bar>
             <Content>
-                <Techs techs={techs} permission={permission} />
-                <Works works={works} permission={permission} />
+                <Techs
+                    techs={techs}
+                    permission={permission}
+                    up={up}
+                    setUp={setUp}
+                />
+                <Works
+                    works={works}
+                    permission={permission}
+                    up={up}
+                    setUp={setUp}
+                />
             </Content>
         </Container>
     );

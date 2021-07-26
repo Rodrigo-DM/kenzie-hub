@@ -11,7 +11,7 @@ import api from "../../services/api";
 
 import { toast } from "react-toastify";
 
-export function AddWork() {
+export function AddWork({ up, setUp }) {
     const formSchema = yup.object().shape({
         title: yup.string().required("Campo obrigatório"),
         description: yup.string().required("Campo obrigatório"),
@@ -31,7 +31,7 @@ export function AddWork() {
         api
             .post("/users/works", { ...data })
             .then((_) => {
-                window.location.reload();
+                setUp(!up);
                 toast.success("Trabalho registrado com sucesso");
             })
             .catch((_) => {
